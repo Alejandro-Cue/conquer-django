@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales (MUY IMPORTANTE)
+venv/
+env/
+.venv/
+
+# Base de datos local (No se suele subir la de desarrollo)
+db.sqlite3
+
+# Archivos de configuración del editor
+.vscode/
+.idea/
+
+# Archivos estáticos y de medios
+media/
+staticfiles/
+
+# Variables de entorno
+.env
