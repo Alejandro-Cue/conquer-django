@@ -1,8 +1,38 @@
-{% extends 'layout_base.html' %}
+{% extends 'layout_base.html' %} {% load static %}
 
 {% block head_title %}Home - ConquerBlocks{% endblock %}
 
 {% block page_content %}
-    <h1>ConquerBlocks</h1>
-    <p>Bienvenido a Conquer Blocks</p>
+<main>
+    <section>
+        <h1>Bienvenido a ConquerBlocks</h1>
+        <p>
+            La escuela número 1 en desarrollo de tecnologías emergentes. Conquer
+            Blocks tiene un Máster pensado para ti.
+        </p>
+        <figure>
+            <figcaption>
+            Academia de programación FullStack <strong>ConquerBlocks</strong>.
+            </figcaption>
+            <img
+            src="{% static 'img/office.jpg' %}"
+            alt="Academia de programación."
+            width="600px"
+            />
+        </figure>
+    </section>    
+
+    <section>
+        <h2>¿Quiénes somos?</h2>
+        <p>
+            Conquer Blocks es la mayor academia de programación en habla hispana,
+            y la que cuenta con mayores garantías de empleo. Aquí podrás aprender
+            sobre
+            <em
+            >Full-Stack, Desarrollo Blockchain, Inteligencia Artificial y
+            Ciberseguridad</em
+            >.
+        </p>
+        <p><a href="{% url 'core:about_us' %}">Conoce ConquerBlocks</a></p>
+    </section>
 {% endblock %}

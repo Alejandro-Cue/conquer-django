@@ -3,6 +3,27 @@
 {% block head_title %}Login - ConquerBlocks{% endblock %}
 
 {% block page_content %}
-    <h1>Login</h1>
-    <p>Ingrese sus credenciales para acceder</p>
+    <main>
+      <h1>Inicia sesión</h1>
+      <p>
+        Es necesario iniciar sesión para acceder a la plataforma de la academia
+        ConquerBlocks.
+      </p>
+
+      <form action="#" method="get">
+        <p>
+          <label for="user">Email</label><br />
+          <input type="email" name="usuario" id="user" required />
+        </p>
+
+        <p>
+          <label for="psw">Contraseña</label><br />
+          <input type="password" name="password" id="psw" required />
+        </p>
+
+        <p>
+          <button type="submit">Enviar</button>
+        </p>
+      </form>
+    </main>
 {% endblock %}

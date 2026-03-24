@@ -3,6 +3,57 @@
 {% block head_title %}Contact us - ConquerBlocks{% endblock %}
 
 {% block page_content %}
-    <h1>Contact Us</h1>
-    <p>Contáctenos</p>
+    <main>
+      <h1>Contacta con nosotros</h1>
+      <p>
+        Contáctanos para recibir toda la información referente a nuestra
+        plataforma y nuestros cursos
+      </p>
+
+      <section>
+        <h2>Formulario de contacto</h2>
+        <form action="#" method="post">
+          <fieldset>
+            <legend>Requerimientos de contacto</legend>
+            <p>
+              <label for="name">Nombre</label><br />
+              <input type="text" name="nombre" id="name" />
+            </p>
+
+            <p>
+              <label for="email">Email</label><br />
+              <input type="email" name="correo" id="email" />
+            </p>
+
+            <p>
+              <label for="comentario">Coméntanos aquí</label><br />
+              <textarea
+                name="comentario"
+                id="comentario"
+                cols="40"
+                rows="10"
+              ></textarea>
+            </p>
+
+            <p><button type="submit">Enviar</button></p>
+          </fieldset>
+        </form>
+      </section>
+
+      <section>
+        <h2>Encuéntranos aquí</h2>
+        <p>
+          <iframe
+            title="Sede ConquerBlocks"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d64612913.34737297!2d-94.18190004999998!3d8.723869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43e73161da11%3A0x1bb275f279520d9a!2sConquer%20Blocks!5e0!3m2!1ses!2ses!4v1748348038786!5m2!1ses!2ses"
+            width="600"
+            height="400"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </p>
+      </section>
+    </main>
 {% endblock %}

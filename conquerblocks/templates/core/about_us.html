@@ -1,8 +1,80 @@
-{% extends 'layout_base.html' %}
+{% extends 'layout_base.html' %} {% load static %}
 
 {% block head_title %}About Us - ConquerBlocks{% endblock %}
 
 {% block page_content %}
-    <h1>About Us</h1>
-    <p>Somos una empresa dedicada a proporcionar soluciones de software de calidad.</p>
+    <main>
+      <section>
+        <h1>Contamos con los mejores profesionales del sector.</h1>
+        <figure>
+          <img
+            width="100%"
+            src="{% static 'img/profesores.png' %}"
+            alt="Profesores ConquerBlocks"
+          />
+        </figure>
+        <p>
+          Conquer Blocks es la mayor academia de programación en habla hispana,
+          y la que cuenta con mayores garantías de empleo. Aquí podrás aprender
+          sobre Desarrollo Full-Stack, Desarrollo Blockchain, Inteligencia
+          Artificial y Ciberseguridad.
+        </p>
+      </section>
+
+      <section>
+        <h2>Equipo Docente</h2>
+
+        <article>
+          <h3>Carlos Azaustre</h3>
+          <p>Ingeniero telemático</p>
+          <figure>
+            <img
+              width="100"
+              src="{% static 'img/carlos-azaustre.avif' %}"
+              alt="Carlos Azaustre"
+            />
+          </figure>
+          <p>
+            Está reconocido por Google desde 2019 como Developer Expert GDE en
+            Tecnologías web y premiado en 2022 y 2023 como Microsoft MVP (Most
+            Valuable Professional).
+          </p>
+        </article>
+        <br />
+
+        <article>
+          <h3>Alan Buscaglia</h3>
+          <p>Arquitecto de software</p>
+          <figure>
+            <img
+              width="100"
+              src="{% static 'img/alan-buscaglia.avif' %}"
+              alt="Alan Buscaglia"
+            />
+          </figure>
+          <p>
+            Es arquitecto líder front-end con una pasión desbordante por crear
+            aplicaciones escalables y eficientes. Mi experiencia abarca big
+            data, arquitectura, implementación de mejores prácticas.
+          </p>
+        </article>
+        <br />
+
+        <article>
+          <h3>Yolanda López</h3>
+          <p>Ingeniera en Telecomunicaciones</p>
+          <figure>
+            <img
+              width="100"
+              src="{% static 'img/yolanda.avif' %}"
+              alt="Yolanda López"
+            />
+          </figure>
+          <p>
+            Enseña SQL y todo el área dedicada al procesamiento de datos dentro
+            de nuestro Máster, así como el lenguaje de programación Solidity.
+          </p>
+        </article>
+      </section>
+    </main>
 {% endblock %}
