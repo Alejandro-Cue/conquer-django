@@ -9,6 +9,10 @@
         <p>{{ course.content }}</p>
         <p>Docente: {{ course.author }}</p>
         <p>Fecha de publicación: {{ course.created_at }}</p>
+        <p><a href="{{ course.call_link }}" target="_blank">Agenda tu llamada</a></p>
+        {% if course.toc %}
+            <p><a href="{{ course.toc.url }}" target="_blank" download>Descargar Índice del Curso</a></p>
+        {% endif %}
         <p><a href="{% url 'cursos:cursos_list' %}">Volver a Cursos</a></p>
     </article>
 

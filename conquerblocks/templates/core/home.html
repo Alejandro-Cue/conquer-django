@@ -35,4 +35,39 @@
         </p>
         <p><a href="{% url 'core:about_us' %}">Conoce ConquerBlocks</a></p>
     </section>
+
+    <section>
+    {% for course in courses %} 
+        <article id="{{ course.pk }}">
+            <h3>{{ course.title }}</h3>
+            <p>Fecha de publicación: {{ course.created_at }}</p>
+            <p>{{ course.description|truncatechars:35 }}</p>
+            <p>
+                <a target="_blank" href="{% url 'cursos:cursos_detail' course.pk %}"
+                    >Leer más</a
+                >
+            </p>
+
+                
+
+        </article>
+    {% endfor %}
+    </section>
+
+    <section>
+    {% for post in posts %}
+        <article id="{{ post.pk }}">
+            <h3>{{ post.title }}</h3>
+            <p>Fecha de publicación: {{ post.created_at }}</p>
+            <p>{{ post.description|truncatechars:35 }}</p>
+            <p>
+                <a target="_blank" href="{% url 'blog:blog_detail' post.pk %}"
+                    >Leer más</a
+                >
+            </p>
+
+        </article>
+    {% endfor %}
+    </section>
+
 {% endblock %}

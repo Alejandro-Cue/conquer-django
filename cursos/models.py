@@ -23,5 +23,17 @@ class Course(models.Model):
         default=timezone.now
     )
 
+    show_home = models.BooleanField(
+        verbose_name='Mostrar en Home',
+        default=False
+    )
+    
+    toc = models.FileField(
+        verbose_name='Índice del curso',
+        upload_to='course_toc/',
+        null=True,
+        blank=True
+    )
+
     def __str__(self):
         return self.title

@@ -19,5 +19,10 @@ class Post(models.Model):
         default=timezone.now
     )
 
+    show_home = models.BooleanField(
+        verbose_name='Mostrar en Home',
+        default=False
+    )
+
     def __str__(self):
         return self.title
