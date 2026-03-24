@@ -1,8 +1,28 @@
-{% extends 'layout_base.html' %}
+{% extends 'layout_base.html' %} {% load static %}
 
 {% block head_title %}Courses List - ConquerBlocks{% endblock %}
 
 {% block page_content %}
-    <h1>Courses List</h1>
-    <p>Lista de cursos</p>
+    <main>
+      <h1>Accede al catálogo de curso de ConquerBlocks</h1>
+      <p>
+        La escuela número 1 en desarrollo de tecnologías emergentes. Conquer
+        Blocks <em>tiene un Máster pensado para ti</em>.
+      </p>
+        {% for course in courses %}
+        <article id="{{ course.pk }}">
+            <h3>{{ course.title }}</h3>
+            <p>{{ course.description|truncatechars:35 }}</p>
+            <p>Docente: {{ course.author }}</p>
+            <p>
+                <a target="_blank" href="{% url 'cursos:cursos_detail' course.pk %}"
+                    >Leer más</a
+                >
+            </p>
+        </article>
+        {% empty %}
+            <p>No hay cursos disponibles.</p>
+        {% endfor %}
+      
+    </main>
 {% endblock %}

@@ -3,6 +3,13 @@
 {% block head_title %}Courses Details- ConquerBlocks{% endblock %}
 
 {% block page_content %}
-    <h1>Courses Details</h1>
-    <p>Detalles de los cursos</p>
+
+    <article id="{{ course.pk }}">
+        <h3>{{ course.title }}</h3>
+        <p>{{ course.content }}</p>
+        <p>Docente: {{ course.author }}</p>
+        <p>Fecha de publicación: {{ course.created_at }}</p>
+        <p><a href="{% url 'cursos:cursos_list' %}">Volver a Cursos</a></p>
+    </article>
+
 {% endblock %}

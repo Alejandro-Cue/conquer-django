@@ -1,8 +1,17 @@
 from django.shortcuts import render
+from .models import Post
 
 # Create your views here.
 def blog_list_view(request):
-    return render(request, 'blog/blog_list.html')
+    all_posts = Post.objects.all()
+    context = {
+        'posts': all_posts
+    }
+    return render(request, 'blog/blog_list.html', context)
 
 def blog_detail_view(request, id):
-    return render(request, 'blog/blog_detail.html', {'id': id})
+    post = Post.objects.get(pk=id)
+    context = {
+        'post': post
+    }
+    return render(request, 'blog/blog_detail.html', context)
