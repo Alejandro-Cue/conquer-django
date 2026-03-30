@@ -1,6 +1,8 @@
 # Create your models here.
 from django.db import models
 from django.utils import timezone
+from thumbnails.fields import ImageField
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Course(models.Model):
@@ -8,7 +10,7 @@ class Course(models.Model):
         verbose_name='Nombre del curso',
         max_length=200
     )
-    content = models.TextField(
+    content = RichTextField(
         verbose_name='Contenido del curso'
     )
     author = models.CharField(
@@ -31,6 +33,13 @@ class Course(models.Model):
     toc = models.FileField(
         verbose_name='Índice del curso',
         upload_to='course_toc/',
+        null=True,
+        blank=True
+    )
+
+    course_image = ImageField(
+        verbose_name='Imagen del curso',
+        upload_to='cursos/images/',
         null=True,
         blank=True
     )

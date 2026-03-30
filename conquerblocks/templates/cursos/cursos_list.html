@@ -12,7 +12,11 @@
         {% for course in courses %}
         <article id="{{ course.pk }}">
             <h3>{{ course.title }}</h3>
+            {% if course.course_image %}
+                <img src="{{ course.course_image.thumbnails.small.url }}" alt="">
+            {% endif %}
             <p>{{ course.description|truncatechars:35 }}</p>
+
             <p>Docente: {{ course.author }}</p>
             <p>
                 <a target="_blank" href="{% url 'cursos:cursos_detail' course.pk %}"

@@ -5,8 +5,11 @@
 {% block page_content %}
 
     <article id="{{ course.pk }}">
+        {% if course.course_image %}
+            <img src="{{ course.course_image.thumbnails.large.url }}" alt="">
+        {% endif %}
         <h3>{{ course.title }}</h3>
-        <p>{{ course.content }}</p>
+        <p>{{ course.content|safe }}</p>
         <p>Docente: {{ course.author }}</p>
         <p>Fecha de publicación: {{ course.created_at }}</p>
         <p><a href="{{ course.call_link }}" target="_blank">Agenda tu llamada</a></p>
