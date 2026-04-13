@@ -15,3 +15,4 @@ def cursos_detail_view(request, id):
         'course': course
     }
     return render(request, 'cursos/cursos_detail.html', context)
+

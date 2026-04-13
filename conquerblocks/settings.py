@@ -171,3 +171,15 @@ THUMBNAILS = {
 }
 
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'alejcue@gmail.com'
+EMAIL_HOST_PASSWORD = 'ywep wsmf htcp wneo'
+
+
+LOGIN_URL = '/login'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
