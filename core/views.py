@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from cursos.models import Course
 from blog.models import Post
-from conquerblocks.forms import ContactForm
+from conquerblocks.forms import ContactForm, LoginForm
 from django.core.mail import send_mail
 from core.models import Contact
-
+from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import redirect
+from django.urls import reverse
 # from .forms import ContactForm
 
 # Create your views here.
@@ -19,8 +21,39 @@ def about_us_view(request):
     return render(request, 'core/about_us.html')
 
 def login_view(request):
-
-    return render(request, 'core/login.html')
+    if request.POST:
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect(reverse('core:home'))
+            else:
+                context = {
+                    'form': form,
+                    'error': True,
+                    'error_message': 'Credenciales inválidas. Por favor, inténtalo de nuevo.',
+                }
+                return render(request, 'core/login.html', context)
+        else:
+            context = {
+                'form': form,
+                'error': True,
+                'error_message': 'Credenciales inválidas. Por favor, inténtalo de nuevo.',
+            }
+            return render(request, 'core/login.html', context)
+    else:
+        form = LoginForm()
+        context = {
+            'form': form
+        }
+        return render(request, 'core/login.html', context)
+    
+def logout_view(request):
+    logout(request)
+    return redirect(reverse('core:home'))
 
 def register_view(request):
     return render(request, 'core/register.html')

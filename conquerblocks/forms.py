@@ -16,3 +16,14 @@ class ContactForm(forms.Form):
         if email and '@' not in email:
             raise forms.ValidationError('El correo electrónico no es válido.')
         return email
+    
+
+class LoginForm(forms.Form):
+    username = forms.CharField(
+        max_length=150,
+        label='Nombre de Usuario'
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput, 
+        label='Contraseña'
+    )

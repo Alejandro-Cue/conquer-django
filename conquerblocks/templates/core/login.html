@@ -9,21 +9,13 @@
         Es necesario iniciar sesión para acceder a la plataforma de la academia
         ConquerBlocks.
       </p>
-
-      <form action="#" method="get">
-        <p>
-          <label for="user">Email</label><br />
-          <input type="email" name="usuario" id="user" required />
-        </p>
-
-        <p>
-          <label for="psw">Contraseña</label><br />
-          <input type="password" name="password" id="psw" required />
-        </p>
-
-        <p>
-          <button type="submit">Enviar</button>
-        </p>
+      {% if error %}
+        <p style="color: red;">{{ error_message }}</p>
+      {% endif %}
+      <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Iniciar sesión</button>
       </form>
     </main>
 {% endblock %}
