@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from cursos.models import Course
 from blog.models import Post
-from conquerblocks.forms import ContactForm, LoginForm
+from conquerblocks.forms import ContactForm, LoginForm, UserRegisterForm
 from django.core.mail import send_mail
 from core.models import Contact
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
 from django.urls import reverse
 # from .forms import ContactForm
+from django.contrib.auth.models import User
 
 # Create your views here.
 def home_view(request):
@@ -56,7 +57,42 @@ def logout_view(request):
     return redirect(reverse('core:home'))
 
 def register_view(request):
-    return render(request, 'core/register.html')
+    if request.POST:
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            first_name = form.cleaned_data.get('first_name')
+            last_name = form.cleaned_data.get('last_name')
+            email = form.cleaned_data.get('email')
+            password1 = form.cleaned_data.get('password1')
+            password2 = form.cleaned_data.get('password2')
+
+            user = User.objects.create_user(
+                username=username,
+                first_name=first_name,
+                last_name=last_name,
+                email=email,
+                password=password1
+                
+            )
+            user.save()
+            context = {
+                'msg': 'Usuario registrado exitosamente. Ahora puedes iniciar sesión.'
+            }
+            return render(request, 'core/register.html', context)
+        else:
+            context = {
+                'form': form,
+                'error': True,
+                'error_message': 'Usuario no válido.',
+            }
+            return render(request, 'core/register.html', context)
+    
+    formulario_vacio = UserRegisterForm()
+    context = {
+        'form': formulario_vacio
+    }
+    return render(request, 'core/register.html', context)
 
 def contact_view(request):
     if request.POST:
